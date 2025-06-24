@@ -56,7 +56,7 @@
 
 ## 📌 Ссылка на проект
 
-https://anastasiya-lemeshko.github.io/internship/
+https://anastasiya-lemeshko.github.io/accelerator-project-3/
 
 
 ## 🚀 Установка и запуск:
