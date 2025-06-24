@@ -1,0 +1,46 @@
+.map {
+  box-sizing: border-box;
+  width: 100%;
+  height: 240px;
+
+  @media (width >= 450px) {
+    height: auto;
+    max-height: 430px;
+    aspect-ratio: 420 / 240;
+  }
+
+  @media #{$tablet-width} {
+    width: 100%;
+    height: 500px;
+    max-height: unset;
+    aspect-ratio: unset;
+  }
+
+  @media (width >= 1000px) {
+    height: auto;
+    max-height: 615px;
+    aspect-ratio: 950 / 430;
+  }
+
+  @media #{$desktop-width} {
+    height: 486px;
+    max-height: unset;
+    aspect-ratio: unset;
+  }
+}
+
+.map__image-wrapper {
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background-color: #bdddc2;
+}
+
+.map__image {
+  display: block;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+}

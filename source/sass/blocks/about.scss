@@ -1,0 +1,251 @@
+.about {
+  padding: 51px $mobile-side 50px;
+
+  @media #{$tablet-width} {
+    padding: 50px $tablet-side;
+  }
+
+  @media #{$desktop-width} {
+    padding: 60px $desktop-side;
+  }
+}
+
+.about__content-wrapper {
+  margin: 0 0 40px;
+
+  @media #{$tablet-width} {
+    margin: 0 0 60px;
+  }
+
+  @media #{$desktop-width} {
+    display: grid;
+    grid-template-columns: 1fr 498px;
+    gap: 30px;
+  }
+}
+
+.about__content-container {
+  @media #{$desktop-width} {
+    margin: 10px 0 0;
+  }
+}
+
+.about__title {
+  margin: 0 0 14px;
+
+  @media #{$tablet-width} {
+    margin: 0 0 31px;
+  }
+
+  @media #{$desktop-width} {
+    margin: 0 0 30px;
+  }
+}
+
+.about__wysiwyg-description {
+  margin: 0 0 40px;
+
+  @media #{$tablet-width} {
+    margin: 0 0 39px;
+  }
+
+  @media #{$desktop-width} {
+    margin: 0;
+  }
+}
+
+.about__wysiwyg-description p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: $text-dark;
+
+  @media #{$tablet-width} {
+    font-size: 20px;
+    line-height: 26px;
+  }
+
+  @media #{$desktop-width} {
+    font-size: 22px;
+    line-height: 32px;
+  }
+}
+
+.about__wysiwyg-description p + p {
+  margin-top: 10px;
+}
+
+.about__wysiwyg-content {
+  margin: 0 0 30px;
+
+  @media #{$tablet-width} {
+    max-width: 500px;
+    margin: 0 0 40px;
+  }
+
+  @media #{$desktop-width} {
+    max-width: 498px;
+    margin: 0 0 50px;
+  }
+}
+
+.about__wysiwyg-content h3 {
+  margin: 0 0 20px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: $bg-primary;
+
+  @media #{$tablet-width} {
+    margin: 0 0 30px;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  @media #{$desktop-width} {
+    margin: 0 0 40px;
+    font-size: 32px;
+    line-height: 36px;
+  }
+}
+
+.about__wysiwyg-content h3:not(:first-child) {
+  margin-top: 40px;
+}
+
+.about__wysiwyg-content p {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $text-dark;
+
+  @media #{$tablet-width} {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media #{$desktop-width} {
+    line-height: 26px;
+  }
+}
+
+.about__wysiwyg-content p + p {
+  margin-top: 10px;
+}
+
+.about__button {
+  max-width: 400px;
+}
+
+.about__list {
+  display: grid;
+  justify-items: center;
+  gap: 22px;
+  margin: 0;
+  padding: 42px 20px 40px;
+  list-style-type: none;
+  color: $white;
+  border-radius: 20px;
+  background-color: $bg-primary;
+
+  @media #{$tablet-width} {
+    grid-template-columns: 1fr 1fr;
+    justify-items: unset;
+    gap: 54px 52px;
+    padding: 72px 50px 50px 70px;
+  }
+
+  @media #{$desktop-width} {
+    padding: 72px 100px 50px 120px;
+  }
+}
+
+.about__item {
+  box-sizing: border-box;
+  position: relative;
+  min-width: 250px;
+  max-width: 450px;
+  border: 1px solid $text-light;
+  border-radius: 16px;
+  padding: 15px 20px;
+
+  @media #{$tablet-width} {
+    max-width: unset;
+    padding: 16px 20px 15px;
+  }
+
+  @media #{$desktop-width} {
+    display: grid;
+    grid-template-columns: 1fr 201px;
+    align-items: center;
+    gap: 10px;
+    padding: 30px 40px;
+  }
+}
+
+.about__item::before {
+  position: absolute;
+  top: -23px;
+  left: -21px;
+  content: "";
+  width: 42px;
+  height: 42px;
+  background-color: $bg-primary;
+  background-image: url("/__spritemap#sprite-star-view");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 22px;
+}
+
+.about__wysiwyg-list span {
+  grid-column: 1 / 2;
+  display: block;
+  margin: 0 0 15px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: inherit;
+  word-break: break-word;
+
+  @media #{$tablet-width} {
+    margin: 0 0 14px;
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  @media #{$desktop-width} {
+    margin: 0;
+    font-size: 26px;
+    line-height: 30px;
+  }
+}
+
+.about__wysiwyg-list div {
+  @media #{$desktop-width} {
+    max-width: 201px;
+  }
+}
+
+.about__wysiwyg-list p {
+  margin: 0;
+  font-family: $primary-font;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+  color: $text-light;
+
+  @media #{$tablet-width} {
+    font-size: 16px;
+    line-height: 20px;
+  }
+}
+
+.about__wysiwyg-list p + p {
+  margin-top: 10px;
+}

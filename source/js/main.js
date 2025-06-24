@@ -1,4 +1,36 @@
-// https://swiperjs.com/get-started#installation
-// import Swiper from "swiper";
-// import {Navigation, Pagination} from "swiper/modules";
-// import 'swiper/css';
+import { toggleBurgerMenu } from './open-burger-menu.js';
+import { initHeroSwiper, setBulletsContainerSize, setActiveHeroView, focusActiveSlide } from './hero-swiper.js';
+import { initProgramsSwiper, setActiveProgramsView } from './programs-swiper.js';
+import { setProgramsFocus } from './programs-focus.js';
+import { initNewsSwiper, setActiveNewsView, onTabClick } from './news-swiper-init.js';
+import { openVisibleAccordeonContent, setAccordeonToggles } from './accordeon.js';
+import { initReviewsSwiper } from './reviews-swiper.js';
+import { renderCustomSelect } from './custom-select.js';
+import { setFormValidate, formatPhone, formatName } from './form-validate.js';
+import { toggleModal } from './modal.js';
+import { checkFooterFocus } from './focus-footer.js';
+import { toggleCheckbox } from './checkbox-toggle.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  toggleBurgerMenu();
+  initHeroSwiper();
+  setBulletsContainerSize();
+  setActiveHeroView();
+  focusActiveSlide();
+  initProgramsSwiper();
+  setActiveProgramsView();
+  setProgramsFocus();
+  initNewsSwiper();
+  setActiveNewsView();
+  onTabClick();
+  openVisibleAccordeonContent();
+  setAccordeonToggles();
+  initReviewsSwiper();
+  renderCustomSelect();
+  setFormValidate();
+  formatPhone();
+  formatName();
+  toggleModal();
+  checkFooterFocus();
+  toggleCheckbox();
+});

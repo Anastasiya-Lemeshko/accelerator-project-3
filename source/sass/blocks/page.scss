@@ -1,0 +1,19 @@
+.page {
+  height: 100%;
+}
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.page__scroll-lock {
+  overflow: hidden;
+}
+
+.page__centerer {
+  box-sizing: border-box;
+  max-width: $max-content-width;
+  margin: 0 auto;
+}

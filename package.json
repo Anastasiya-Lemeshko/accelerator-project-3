@@ -17,7 +17,8 @@
     "stylelint": "stylelint \"source/sass/**/*.scss\" --fix",
     "lint-js": "eslint source/js --fix",
     "ls-lint": "ls-lint",
-    "editorconfig": "editorconfig-cli"
+    "editorconfig": "editorconfig-cli",
+    "deploy": "vite build --emptyOutDir && npm install gh-pages --save-dev && gh-pages -d dist"
   },
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "3.0.0",

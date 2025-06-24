@@ -1,4 +1,44 @@
 // Vendor
-// ---------------------------------
-
 @import "vendor/normalize";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
+@import "swiper/css/grid";
+
+// Global
+@import "./common/variables";
+@import "./common/fonts";
+@import "./common/global";
+@import "./common/visually-hidden";
+
+// Blocks
+@import "./blocks/page";
+@import "./blocks/main-container";
+@import "./blocks/logo-image";
+@import "./blocks/button";
+@import "./blocks/button-arrow";
+@import "./blocks/angle";
+@import "./blocks/title";
+@import "./blocks/field";
+@import "./blocks/select";
+@import "./blocks/control";
+@import "./blocks/accordeon";
+@import "./blocks/nav";
+@import "./blocks/social";
+@import "./blocks/header-inner";
+@import "./blocks/hero";
+@import "./blocks/header";
+@import "./blocks/about";
+@import "./blocks/programs-card";
+@import "./blocks/programs";
+@import "./blocks/grant";
+@import "./blocks/news";
+@import "./blocks/faq";
+@import "./blocks/reviews-card";
+@import "./blocks/reviews";
+@import "./blocks/map";
+@import "./blocks/contacts";
+@import "./blocks/callback";
+@import "./blocks/footer";
+@import "./blocks/modal";

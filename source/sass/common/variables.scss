@@ -1,0 +1,35 @@
+// Fonts
+
+$primary-font: "Manrope", "Arial", sans-serif;
+
+// Colors
+
+$text-dark: #484848;
+$text-light: #f0efe9;
+$bg-primary: #316dc2;
+$button-active: #275699;
+$button-disabled: #a9afb7;
+$overlay: rgba(13, 29, 51, 0.4);
+$white: #ffffff;
+$transparent: rgba(255, 255, 255, 0);
+
+// Breakpoint
+
+$breakpoint-desktop: 1440px;
+$breakpoint-tablet: 768px;
+$breakpoint-gap: 0.02px;
+
+// Viewports
+
+$mobile-only: "(max-width: #{$breakpoint-tablet - $breakpoint-gap})";
+$tablet-width: "(min-width: #{$breakpoint-tablet})";
+$tablet-only: "(min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-desktop - $breakpoint-gap})";
+$desktop-width: "(min-width: #{$breakpoint-desktop})";
+
+
+// Adaptive sizes
+
+$max-content-width: 1440px;
+$mobile-side: 15px;
+$tablet-side: 45px;
+$desktop-side: 100px;

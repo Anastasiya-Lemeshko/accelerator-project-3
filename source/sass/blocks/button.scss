@@ -1,0 +1,239 @@
+.button {
+  --color: #{$bg-primary};
+  --bg-color: #{$transparent};
+  --border: 1px solid #{$bg-primary};
+  --circle-color: #{$bg-primary};
+  --arrow-color: #{$white};
+  --arrow-transform: translateY(-50%);
+
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 16px 57px 14px 21px;
+  font-family: $primary-font;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: var(--border);
+  border-radius: 30px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: color 0.3s, background-color 0.3s, border 0.3s;
+
+  @media #{$tablet-width} {
+    padding: 20px 81px 20px 30px;
+    font-size: 14px;
+  }
+
+  &:focus-visible {
+    --color: #{$bg-primary};
+    --bg-color: #{$transparent};
+    --border: 1px solid #{$bg-primary};
+    --circle-color: #{$bg-primary};
+    --arrow-color: #{$white};
+    --arrow-transform: translateY(-50%) rotate(45deg);
+
+    outline: none;
+  }
+
+  &:hover {
+    --color: #{$white};
+    --bg-color: #{$bg-primary};
+    --border: 1px solid #{$bg-primary};
+    --circle-color: #{$white};
+    --arrow-color: #{$bg-primary};
+    --arrow-transform: translateY(-50%) rotate(45deg);
+  }
+
+  &:active {
+    --color: rgba(255, 255, 255, 0.7);
+    --bg-color: #{$bg-primary};
+    --border: 1px solid #{$bg-primary};
+    --circle-color: #{$white};
+    --arrow-color: rgba(49, 109, 194, 0.7);
+    --arrow-transform: translateY(-50%) rotate(45deg);
+  }
+
+  &:disabled {
+    --color: #{$button-disabled};
+    --bg-color: #{$transparent};
+    --border: 1px solid #{$button-disabled};
+    --circle-color: #{$button-disabled};
+    --arrow-color: rgba(255, 255, 255, 0.6);
+    --arrow-transform: translateY(-50%);
+
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.button::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 4px;
+  content: "";
+  width: 34px;
+  height: 34px;
+  background-color: var(--circle-color);
+  border-radius: 50%;
+  transition: background-color 0.3s;
+
+  @media #{$tablet-width} {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+.button::after {
+  position: absolute;
+  top: 50%;
+  transform: var(--arrow-transform);
+  right: 17px;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: var(--arrow-color);
+  mask-image: url("/__spritemap#sprite-arrow-button-view");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  transition: background-color 0.3s, transform 0.3s;
+
+  @media #{$tablet-width} {
+    right: 23px;
+  }
+
+  @media #{$desktop-width} {
+    right: 24px;
+  }
+}
+
+.button--disabled {
+  --color: #{$button-disabled};
+  --bg-color: #{$transparent};
+  --border: 1px solid #{$button-disabled};
+  --circle-color: #{$button-disabled};
+  --arrow-color: rgba(255, 255, 255, 0.6);
+  --arrow-transform: translateY(-50%);
+
+  pointer-events: none;
+  cursor: default;
+}
+
+.button--secondary {
+  --color: #{$white};
+  --border: 1px solid #{$white};
+  --circle-color: #{$white};
+  --arrow-color: #{$bg-primary};
+
+  &:focus-visible {
+    --color: #{$white};
+    --bg-color: #{$transparent};
+    --border: 1px solid #{$white};
+    --circle-color: #{$white};
+    --arrow-color: #{$bg-primary};
+  }
+
+  &:hover {
+    --color: #{$bg-primary};
+    --bg-color: #{$white};
+    --border: 1px solid #{$white};
+    --circle-color: #{$bg-primary};
+    --arrow-color: #{$white};
+  }
+
+  &:active {
+    --color: rgba(49, 109, 194, 0.7);
+    --bg-color: #{$white};
+    --border: 1px solid #{$white};
+    --circle-color: #{$bg-primary};
+    --arrow-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.button--burger {
+  --bg-color: #{$white};
+  --icon-color: #{$white};
+
+  padding: 19px 69px 19px 20px;
+  font-size: 14px;
+  text-align: left;
+
+  @media #{$tablet-width} {
+    padding: 20px 69px 20px 20px;
+  }
+
+  &:focus-visible {
+    --icon-color: #{$bg-primary};
+    --bg-color: #{$bg-primary};
+    --color: #{$white};
+    --circle-color: #{$white};
+  }
+
+  &:hover {
+    --icon-color: #{$bg-primary};
+  }
+
+  &:active {
+    --icon-color: rgba(49, 109, 194, 0.7);
+  }
+
+  &:disabled {
+    --icon-color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.button--burger.button--secondary {
+  --border: 1px solid #{$bg-primary};
+  --bg-color: #{$bg-primary};
+  --icon-color: #{$bg-primary};
+
+  &:focus-visible {
+    --bg-color: #{$white};
+    --border: 1px solid #{$white};
+    --icon-color: #{$white};
+    --color: #{$bg-primary};
+    --circle-color: #{$bg-primary};
+  }
+
+  &:hover {
+    --bg-color: #{$white};
+    --border: 1px solid #{$white};
+    --icon-color: #{$white};
+  }
+
+  &:active {
+    --bg-color: #{$white};
+    --border: 1px solid #{$white};
+    --icon-color: rgba(255, 255, 255, 0.7);
+  }
+
+  &:disabled {
+    --bg-color: rgba(255, 255, 255, 0.6);
+    --border: 1px solid #{$button-disabled};
+    --icon-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
+.button--burger::before {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+}
+
+.button--burger::after {
+  display: none;
+}
+
+.button--burger span,
+.button--burger span::before,
+.button--burger span::after {
+  background-color: var(--icon-color);
+}

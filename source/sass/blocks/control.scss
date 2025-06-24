@@ -1,0 +1,122 @@
+.control {
+  --label-color: rgba(72, 72, 72, 0.9);
+  --bg-color: #{$bg-primary};
+  --border: 1px solid #{$bg-primary};
+  --opacity: 1;
+  --icon-color: #{$white};
+  --icon-opacity: 0;
+}
+
+.control--light {
+  --label-color: rgba(255, 255, 255, 0.9);
+  --bg-color: #{$white};
+  --border: 1px solid #{$white};
+  --icon-color: #{$bg-primary};
+}
+
+.control__label {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  font-family: $primary-font;
+  color: var(--label-color);
+  cursor: pointer;
+
+  &::before {
+    box-sizing: border-box;
+    grid-area: 1 / 1 / 2 / 2;
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: 0 0 2px;
+    background-color: var(--bg-color);
+    border: var(--border);
+    border-radius: 2px;
+    opacity: var(--opacity);
+    transition: background-color 0.3s, border 0.3s, opacity 0.3s;
+  }
+
+  &::after {
+    box-sizing: border-box;
+    grid-area: 1 / 1 / 2 / 2;
+    content: "";
+    width: 20px;
+    height: 20px;
+    margin: 0 0 2px;
+    background-color: var(--icon-color);
+    mask-image: url("/__spritemap#sprite-check-view");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    mask-size: 10px 10px;
+    opacity: var(--icon-opacity);
+    transition: background-color 0.3s, opacity 0.3s;
+  }
+}
+
+.control--error {
+  --border: 1px solid #ff5e66;
+  --bg-color: rgba(255, 94, 102, 0.2);
+  --opacity: 0.7;
+}
+
+.control__input:focus-visible {
+  outline: none;
+}
+
+.control:has(.control__input:focus-visible),
+.control:has(.control__input:hover) {
+  --bg-color: #{$white};
+}
+
+.control--light:has(.control__input:focus-visible),
+.control--light:has(.control__input:hover) {
+  --bg-color: #{$bg-primary};
+}
+
+.control--error:has(.control__input:focus-visible),
+.control--error:has(.control__input:hover) {
+  --bg-color: rgba(255, 255, 255, 0.2);
+  --opacity: 0.7;
+}
+
+.control:has(.control__input:active) {
+  --border: 1px solid rgba(49, 109, 194, 0.8);
+}
+
+.control--light:has(.control__input:active) {
+  --border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.control:has(.control__input:disabled) {
+  --border: 1px solid #{$bg-primary};
+  --bg-color: rgba(49, 109, 194, 0.6);
+  --opacity: 1;
+}
+
+.control--light:has(.control__input:disabled) {
+  --border: 1px solid #{$white};
+  --bg-color: rgba(255, 255, 255, 0.6);
+}
+
+.control:has(.control__input:checked) {
+  --icon-opacity: 1;
+}
+
+.control:has(.control__input:checked:focus-visible),
+.control:has(.control__input:checked:hover) {
+  --icon-color: #{$bg-primary};
+}
+
+.control--light:has(.control__input:checked:focus-visible),
+.control--light:has(.control__input:checked:hover) {
+  --icon-color: #{$white};
+}
+
+.control:has(.control__input:checked:disabled) {
+  --bg-color: #{$button-disabled};
+  --border: 1px solid #{$button-disabled};
+  --icon-color: rgba(255, 255, 255, 0.7);
+}

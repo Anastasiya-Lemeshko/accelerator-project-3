@@ -1,0 +1,62 @@
+.angle {
+  --angle-color: #{$white};
+  --angle-width: 10px;
+  --angle-height: 10px;
+  --angle-source: url("/__spritemap#sprite-angle-view");
+
+  position: relative;
+}
+
+.angle::before {
+  position: absolute;
+  top: 2px;
+  left: 100%;
+  content: "";
+  width: var(--angle-width);
+  height: var(--angle-height);
+  background-color: var(--angle-color);
+  mask-image: var(--angle-source);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  z-index: 1;
+}
+
+.angle::after {
+  position: absolute;
+  top: 0;
+  left: calc(100% - 2px);
+  content: "";
+  width: calc(var(--angle-width) + 2px);
+  height: calc(var(--angle-height) + 2px);
+  border-style: solid;
+  border-color: var(--angle-color);
+  border-width: 2px 0 0 2px;
+  z-index: 1;
+}
+
+.angle--bottom::before {
+  top: unset;
+  bottom: 2px;
+  transform: scaleY(-1);
+}
+
+.angle--bottom::after {
+  top: unset;
+  bottom: 0;
+  border-width: 0 0 2px 2px;
+}
+
+.angle--top::before {
+  top: unset;
+  bottom: 100%;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.angle--top::after {
+  top: unset;
+  bottom: calc(100% - 2px);
+  left: -2px;
+  border-width: 0 0 2px 2px;
+}

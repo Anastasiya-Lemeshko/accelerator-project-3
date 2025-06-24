@@ -1,0 +1,225 @@
+.faq {
+  padding: 51px $mobile-side 50px;
+
+  @media #{$tablet-width} {
+    padding: 50px $tablet-side;
+  }
+
+  @media #{$desktop-width} {
+    padding: 71px $desktop-side 60px;
+  }
+}
+
+.faq__title {
+  margin: 0 0 29px;
+  text-align: center;
+
+  @media #{$tablet-width} {
+    margin: 0 0 40px;
+  }
+
+  @media #{$desktop-width} {
+    margin: 0 0 71px;
+  }
+}
+
+.faq__accordeon {
+  @media #{$tablet-width} {
+    max-width: 1028px;
+    margin: 0 auto;
+  }
+}
+
+.faq__item {
+  --circle-color: #{$bg-primary};
+  --circle-border: 1px solid #{$bg-primary};
+  --minus-color: #{$white};
+  --before-transform: translate(-50%, -50%);
+  --after-transform: translate(-50%, -50%) rotate(90deg);
+  --after-opacity: 1;
+
+  padding: 1px 6px;
+  color: $bg-primary;
+  border: 2px solid $bg-primary;
+  border-radius: 14px;
+  transition: background-color 0.3s, color 0.3s, border 0.3s;
+
+  @media #{$tablet-width} {
+    padding: 11px 21px;
+    border-radius: 16px;
+  }
+
+  @media #{$desktop-width} {
+    padding: 21px 31px;
+  }
+}
+
+.faq__item:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.faq__item--active {
+  --circle-color: #{$white};
+  --circle-border: 1px solid #{$white};
+  --minus-color: #{$bg-primary};
+  --before-transform: translate(-50%, -50%) rotate(90deg);
+  --after-transform: translate(-50%, -50%) rotate(180deg);
+  --after-opacity: 0;
+
+  color: $white;
+  background-color: $bg-primary;
+}
+
+.faq__item:has(.faq__button:focus-visible),
+.faq__item:has(.faq__button:hover) {
+  --circle-color: #{$white};
+  --minus-color: #{$bg-primary};
+
+  color: $bg-primary;
+  background-color: $white;
+}
+
+.faq__item:has(.faq__button:active) {
+  --circle-color: #{$button-active};
+  --circle-border: 1px solid #{$button-active};
+  --minus-color: #{$white};
+
+  color: $button-active;
+  background-color: $white;
+}
+
+.faq__item--active:has(.faq__button:focus-visible),
+.faq__item--active:has(.faq__button:hover) {
+  --circle-color: #{$transparent};
+  --minus-color: #{$white};
+
+  color: $white;
+  background-color: $bg-primary;
+  border: 2px solid $white;
+}
+
+.faq__item--active:has(.faq__button:active) {
+  --circle-color: #{$white};
+  --minus-color: #{$button-active};
+
+  color: $white;
+  background-color: $button-active;
+  border: 2px solid $button-active;
+}
+
+.faq__item:has(.faq__button:disabled) {
+  --circle-color: #{$button-disabled};
+  --circle-border: 1px solid #{$button-disabled};
+  --minus-color: rgba(255, 255, 255, 0.6);
+
+  color: $button-disabled;
+  border: 2px solid $button-disabled;
+}
+
+.faq__item--study br {
+  display: none;
+
+  @media #{$tablet-only} {
+    display: block;
+  }
+}
+
+.faq__button {
+  display: grid;
+  grid-template-columns: 1fr 40px;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 19px 9px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18px;
+  color: inherit;
+  text-align: left;
+  border: none;
+  background-color: $transparent;
+  cursor: pointer;
+
+  @media #{$tablet-width} {
+    font-size: 22px;
+    line-height: 26px;
+  }
+
+  @media #{$desktop-width} {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &:disabled {
+    cursor: default;
+    pointer-events: none;
+  }
+}
+
+.faq__button-icon {
+  box-sizing: border-box;
+  position: relative;
+  grid-area: 1 / 2 / 2 / 3;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border: var(--circle-border);
+  border-radius: 50%;
+  background-color: var(--circle-color);
+  transition: background-color 0.3s, border 0.3s;
+
+  @media #{$tablet-width} {
+    align-self: start;
+  }
+}
+
+.faq__button-icon::before,
+.faq__button-icon::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: var(--before-transform);
+  content: "";
+  width: 1px;
+  height: 18px;
+  background-color: var(--minus-color);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.faq__button-icon::after {
+  transform: var(--after-transform);
+  opacity: var(--after-opacity);
+}
+
+.faq__wysiwyg {
+  padding: 0 9px;
+}
+
+.faq__wysiwyg p {
+  margin: 1px 0 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: $text-light;
+
+  @media #{$tablet-width} {
+    font-size: 16px;
+  }
+
+  @media #{$desktop-width} {
+    line-height: 26px;
+  }
+}
+
+.faq__wysiwyg p:last-child {
+  margin-bottom: 19px;
+}
+
+.faq__wysiwyg p + p {
+  margin-top: 10px;
+}

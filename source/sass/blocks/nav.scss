@@ -1,0 +1,247 @@
+.nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 290px;
+
+  @media #{$tablet-width} {
+    width: 286px;
+  }
+}
+
+.nav__burger {
+  position: relative;
+  min-width: 136px;
+  width: fit-content;
+  transition: min-width 0.2s ease-out 0.1s;
+  z-index: 10;
+}
+
+.nav--menu-opened .nav__burger {
+  width: 290px;
+  transition: min-width 0.2s ease-out;
+
+  @media #{$tablet-width} {
+    width: unset;
+    min-width: 286px;
+  }
+}
+
+.nav__burger-icon {
+  position: absolute;
+  display: block;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 19px;
+  width: 15px;
+  height: 1px;
+  border-radius: 1px;
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+
+.nav--menu-opened .nav__burger-icon {
+  background-color: $transparent;
+}
+
+.nav__burger-icon::before,
+.nav__burger-icon::after {
+  position: absolute;
+  left: 0;
+  content: "";
+  width: 15px;
+  height: 1px;
+  border-radius: 1px;
+}
+
+.nav__burger-icon::before {
+  bottom: 3px;
+  transition: bottom 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.nav__burger-icon::after {
+  top: 3px;
+  transition: top 0.3s, transform 0.3s, background-color 0.3s;
+}
+
+.nav--menu-opened .nav__burger-icon::before {
+  bottom: 0;
+  transform: rotate(45deg) scaleX(1.5);
+}
+
+.nav--menu-opened .nav__burger-icon::after {
+  top: 0;
+  transform: rotate(-45deg) scaleX(1.5);
+}
+
+.nav__list {
+  box-sizing: border-box;
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  width: 100%;
+  margin: 0;
+  padding: 31px 23px;
+  list-style-type: none;
+  color: $white;
+  border-radius: 16px;
+  background-color: $bg-primary;
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0.7;
+  overflow-y: auto;
+  max-height: 70vh;
+  transition: transform 0.2s, opacity 0.1s;
+  z-index: 10;
+}
+
+.nav--menu-opened .nav__list {
+  transform: scaleY(1);
+  opacity: 1;
+  transition: transform 0.2s 0.1s, opacity 0.1s 0.1s;
+}
+
+.nav__item {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.nav__item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.nav--menu-opened .nav__item {
+  opacity: 1;
+}
+
+.nav__link,
+.nav__button {
+  display: block;
+  width: fit-content;
+  padding: 2px;
+  font-family: $primary-font;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: inherit;
+  border: none;
+  background-color: $transparent;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: left;
+  word-break: break-word;
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  cursor: pointer;
+
+  &:focus-visible,
+  &:hover {
+    opacity: 1;
+    outline: none;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+}
+
+.nav__item--open .nav__link,
+.nav__item--open .nav__button,
+.nav__link--current {
+  opacity: 1;
+
+  &:focus-visible,
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+.nav__button {
+  display: grid;
+  grid-template-columns: 1fr 16px;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav__button::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background-image: url("/__spritemap#sprite-arrow-small-view");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px 12px;
+  transform: scaleY(-1);
+  transition: transform 0.3s;
+}
+
+.nav__item--open .nav__button::after {
+  transform: scaleY(1);
+}
+
+.nav__sub-list {
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  animation: appear 0.3s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.nav__item--open .nav__sub-list {
+  opacity: 1;
+}
+
+.nav__sub-item:first-child {
+  margin-top: 12px;
+}
+
+.nav__sub-item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.nav__sub-link {
+  display: block;
+  margin-left: 16px;
+  padding: 2px;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+
+  &:focus-visible,
+  &:hover {
+    opacity: 0.9;
+    outline: none;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}
+
+.nav__sub-link--current {
+  opacity: 0.9;
+}

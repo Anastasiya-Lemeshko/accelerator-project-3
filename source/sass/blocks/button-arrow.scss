@@ -1,0 +1,111 @@
+.button-arrow {
+  --bg-color: #{$bg-primary};
+  --arrow-color: #{$white};
+  --transform: translate(-50%, -50%) rotate(0);
+
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  text-decoration: none;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--bg-color);
+  transition: background-color 0.3s;
+  cursor: pointer;
+
+  &:focus-visible {
+    --bg-color: #{$bg-primary};
+    --arrow-color: #{$white};
+    --transform: translate(-50%, -50%) rotate(45deg);
+
+    outline: none;
+  }
+
+  &:hover {
+    --bg-color: #{$white};
+    --arrow-color: #{$bg-primary};
+    --transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:active {
+    --bg-color: #{$white};
+    --arrow-color: rgba(49, 109, 194, 0.7);
+    --transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &:disabled {
+    --bg-color: #{$button-disabled};
+    --arrow-color: rgba(255, 255, 255, 0.6);
+    --transform: translate(-50%, -50%) rotate(0);
+
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.button-arrow--disabled {
+  --bg-color: #{$button-disabled};
+  --arrow-color: rgba(255, 255, 255, 0.6);
+  --transform: translate(-50%, -50%) rotate(0);
+
+  pointer-events: none;
+  cursor: default;
+}
+
+.button-arrow::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: var(--arrow-color);
+  mask-image: url("/__spritemap#sprite-arrow-button-view");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 100% 100%;
+  transform: var(--transform);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-arrow--swiper {
+  --bg-color: #{$transparent};
+  --arrow-color: #{$bg-primary};
+
+  width: 22px;
+  height: 22px;
+
+  &:focus-visible {
+    --bg-color: #{$white};
+    --arrow-color: #{$bg-primary};
+  }
+
+  &:hover {
+    --bg-color: #{$transparent};
+    --arrow-color: rgba(49, 109, 194, 0.7);
+  }
+
+  &:active {
+    --bg-color: #{$white};
+    --arrow-color: rgba(49, 109, 194, 0.7);
+  }
+
+  &:disabled {
+    --bg-color: #{$transparent};
+    --arrow-color: #{$button-disabled};
+
+    pointer-events: none;
+    cursor: default;
+  }
+}
+
+.button-arrow--swiper::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.button-arrow--prev::after {
+  transform: translate(-50%, -50%) rotate(225deg);
+}
